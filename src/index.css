@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* to center everything on large screens */
+.container {
+  font-family: monospace;
+  max-width: 960px; /* the stuff inside the container will not go above given max-width */
+  /* this keeps everything center on large screens */
+  margin-right: auto;
+  margin-left: auto;
+  /* prevents the notes being push to edge of the screen */
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.notes-list {
+  display: grid;
+  grid-gap: 1rem;
+  /* auto-fit: will automatically resize based on our columns size which is minmax()  */
+  /* minmax(250px, 1fr): a column cannot be smaller than 250px and cannot be bigger than 1 Fractional Unit */
+  /* fr: whatever space is available */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* how many columns we need for our grid note app */
+}
+
+/* AddNote Component */
+/*  */
+.note.new {
+  background-color: #67d7cc;
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: #67d7cc;
+}
+
+/* remove the border inside the textarea field when the user writes */
+textarea:focus {
+  outline: none;
+}
+
+.save {
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.save:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+.note {
+  background-color: #fef68a;
+  /* margin-bottom: 10px; spacing between the notes */
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 170px; /* to make all our notes to be the same size */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap; /* this just means keep any spacing that was added to the text */
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
